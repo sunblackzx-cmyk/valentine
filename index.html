@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Valentine ❤️</title>
+
 <style>
     body {
         margin: 0;
@@ -15,21 +16,31 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        transition: background 1s ease;
     }
 
     h1 {
         color: #fff;
         font-size: 2rem;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .subtitle {
+        color: #fff;
+        font-size: 1.05rem;
+        opacity: 0.9;
+        margin-bottom: 25px;
+        line-height: 1.5;
     }
 
     .buttons {
         position: relative;
+        height: 60px;
     }
 
     button {
-        padding: 12px 24px;
+        padding: 12px 26px;
         font-size: 1.1rem;
         border: none;
         border-radius: 30px;
@@ -40,27 +51,31 @@
     #yesBtn {
         background: #ff4d6d;
         color: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     #noBtn {
         background: #fff;
         color: #ff4d6d;
         position: absolute;
+        left: 120px;
     }
 
     #message {
         display: none;
         color: #fff;
-        font-size: 1.6rem;
-        margin-top: 20px;
+        font-size: 1.4rem;
+        margin-top: 30px;
+        line-height: 1.6;
     }
 
-    /* Heart balloons */
+    /* Floating hearts */
     .heart {
         position: absolute;
         font-size: 24px;
         animation: float 6s linear infinite;
-        opacity: 0.8;
+        opacity: 0.85;
+        pointer-events: none;
     }
 
     @keyframes float {
@@ -78,10 +93,18 @@
     }
 </style>
 </head>
+
 <body>
 
 <div>
-    <h1>Will you be my Valentine? 💘</h1>
+    <h1>
+        Will you be my Valentine, Nam? 💘
+    </h1>
+
+    <div class="subtitle">
+        I made this little page just for you 🌷<br>
+        because you mean more to me than you know.
+    </div>
 
     <div class="buttons">
         <button id="yesBtn">Yes ❤️</button>
@@ -89,7 +112,12 @@
     </div>
 
     <div id="message">
-        Yay! 💖 You just made my heart the happiest!
+        Yay! 💖<br><br>
+        Thank you for choosing me.<br>
+        I promise to take care of your smile,<br>
+        support you, and walk beside you<br>
+        as best as I can 🌹<br><br>
+        Happy Valentine’s Day, Nam 💕
     </div>
 </div>
 
@@ -99,8 +127,8 @@
     const message = document.getElementById("message");
 
     function moveButton() {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 50);
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 60);
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
     }
@@ -112,9 +140,12 @@
         message.style.display = "block";
         yesBtn.style.display = "none";
         noBtn.style.display = "none";
+
+        document.body.style.background =
+            "linear-gradient(135deg, #ff758c, #ff7eb3)";
     });
 
-    // create floating hearts
+    // floating hearts
     setInterval(() => {
         const heart = document.createElement("div");
         heart.className = "heart";
@@ -131,4 +162,3 @@
 
 </body>
 </html>
-add valentine page
